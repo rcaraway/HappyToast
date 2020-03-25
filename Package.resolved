@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "HappyColors",
+        "repositoryURL": "https://github.com/rcaraway/HappyColors",
+        "state": {
+          "branch": "master",
+          "revision": "2bbadd4d9eb400910ddbf0224c32d988414fc6a7",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

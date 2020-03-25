@@ -1,5 +1,6 @@
 #if !os(macOS)
 import UIKit
+import HappyColors
 
 public enum ToastType {
     case neutral
@@ -34,20 +35,20 @@ private class Toast: UIView {
     func colorFor(type: ToastType) -> UIColor {
         switch type {
         case .neutral:
-            return .gray
+            return .flatGray
         case .success:
-            return .green
+            return .flatGreen
         case .failure:
-            return .red
+            return .flatRed
         default:
-            return .orange
+            return .flatOrange
         }
     }
 }
 
 public extension UIView {
     
-    public func showToast(message: String, type: ToastType) {
+    func showToast(message: String, type: ToastType) {
         let toast = Toast.shared
         toast.label.text = message
         toast.backgroundColor = toast.colorFor(type: type)
@@ -61,7 +62,7 @@ public extension UIView {
         animateToast(show: true)
     }
     
-    public func showToast(message: String) {
+    func showToast(message: String) {
         showToast(message: message, type: .neutral)
     }
     
@@ -99,7 +100,7 @@ public extension UIView {
 
 public extension UIViewController {
     
-    public func showToast(message: String, type: ToastType) {
+    func showToast(message: String, type: ToastType) {
         if let nav = navigationController {
             nav.view.showToast(message: message, type: type)
         }else {
@@ -107,7 +108,7 @@ public extension UIViewController {
         }
     }
     
-    public func showToast(message: String) {
+    func showToast(message: String) {
         if let nav = navigationController {
             nav.view.showToast(message: message)
         }else {
