@@ -47,7 +47,7 @@ private class Toast: UIView {
 
 public extension UIView {
     
-    public func showToast(message: String, type: ToastType = .neutral) {
+    public func showToast(message: String, type: ToastType) {
         let toast = Toast.shared
         toast.label.text = message
         toast.backgroundColor = toast.colorFor(type: type)
@@ -59,6 +59,10 @@ public extension UIView {
             addSubview(toast)
         }
         animateToast(show: true)
+    }
+    
+    public func showToast(message: String) {
+        showToast(message, type: .neutral)
     }
     
     private func animateToast(show: Bool) {
