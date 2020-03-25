@@ -90,7 +90,7 @@ public extension UIView {
                 view.frame.minY < bar.frame.minY{
                 minYBar = view as? UINavigationBar ?? bar
             }else {
-               minYBar = view as? UINavigationBar
+                minYBar = view as? UINavigationBar
             }
         }
         return minYBar
@@ -98,6 +98,14 @@ public extension UIView {
 }
 
 public extension UIViewController {
+    
+    public func showToast(message: String, type: ToastType) {
+        if let nav = navigationController {
+            nav.view.showToast(message: message, type: type)
+        }else {
+            view.showToast(message: message, type: type)
+        }
+    }
     
     public func showToast(message: String) {
         if let nav = navigationController {
