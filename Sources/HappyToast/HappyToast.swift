@@ -62,7 +62,7 @@ public extension UIView {
     }
     
     public func showToast(message: String) {
-        showToast(message, type: .neutral)
+        showToast(message: message, type: .neutral)
     }
     
     private func animateToast(show: Bool) {
