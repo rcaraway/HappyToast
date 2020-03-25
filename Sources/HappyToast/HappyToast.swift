@@ -1,7 +1,7 @@
 #if !os(macOS)
 import UIKit
 
-enum ToastType {
+public enum ToastType {
     case neutral
     case success
     case warning
@@ -45,12 +45,12 @@ private class Toast: UIView {
     }
 }
 
-extension UIView {
+public extension UIView {
     
     public func showToast(message: String, type: ToastType = .neutral) {
         let toast = Toast.shared
         toast.label.text = message
-        toast.backgroundColor = colorFor(type: type)
+        toast.backgroundColor = toast.colorFor(type: type)
         if let nav = findNavBar() {
             toast.frame = nav.frame
             insertSubview(toast, belowSubview: nav)
@@ -93,7 +93,7 @@ extension UIView {
     }
 }
 
-extension UIViewController {
+public extension UIViewController {
     
     public func showToast(message: String) {
         if let nav = navigationController {
